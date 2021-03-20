@@ -1,19 +1,44 @@
 <template>
   <div class="container">
     <div>
-      <Home/>
+      <Home @toggleMood="toggleMood"/>
+      <Work />
     </div>
   </div>
 </template>
 
 <script>
 import Home from '../components/Home';
+import Work from '../components/Work';
 
 export default {
 
   components: {
-    Home
+    Home, Work
   },
+  methods: {
+    toggleMood: function (switches) {
+      //switches[0] is light, switches[1] is weather, switches[2] is sunset
+      if (switches[2] === false) {
+        if (switches[0] === true && switches[1] === true) {
+            document.getElementById("work").style.backgroundColor = 'rgb(103, 101, 117)';
+            document.getElementById("work-content").style.color = 'white';
+        } else if (switches[0] === false && switches[1] === true) {
+            document.getElementById("work").style.backgroundColor = 'rgb(176, 197, 235)';
+            document.getElementById("work-content").style.color = 'rgb(31, 26, 119)';
+        } else if (switches[0] === true && switches[1] === false) {
+            document.getElementById("work").style.backgroundColor = 'rgb(65, 59, 99)';
+            document.getElementById("work-content").style.color = 'white';
+        } else {
+            document.getElementById("work").style.backgroundColor = 'rgb(181, 199, 237)';
+            document.getElementById("work-content").style.color = 'rgb(31, 26, 119)';
+        }
+      } else {
+        document.getElementById("work").style.backgroundColor = 'rgb(31, 26, 119)';
+        document.getElementById("work-content").style.color = 'white';
+      }
+    }
+  }
 }
 </script>
 
@@ -33,6 +58,7 @@ body {
 h2 {
   font-size: 350%;
   font-weight: 500;
+  font-family: 'Poppins';
 }
 
 h5 {
@@ -40,6 +66,12 @@ h5 {
   font-weight: 600;
   font-family: 'Poppins';
   color: rgb(31, 26, 119);
+}
+
+h6 {
+  font-size: 90%;
+  font-weight: 500;
+  font-family: 'Poppins';
 }
 
 .container {
