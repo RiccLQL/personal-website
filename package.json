@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "gsap": "^3.6.0",
     "nuxt": "^2.14.12",
-    "vuesax": "^4.0.1-alpha.25"
+    "vue-wavify": "^1.2.0",
+    "vuesax": "^4.0.1-alpha.25",
+    "wavify": "^1.0.0"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.1.2",

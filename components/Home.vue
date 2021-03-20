@@ -1,11 +1,38 @@
 <template>
-    <div class="home">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wave"><path fill-opacity="1" d="M0,32L48,53.3C96,75,192,117,288,122.7C384,128,480,96,576,117.3C672,139,768,213,864,208C960,203,1056,117,1152,106.7C1248,96,1344,160,1392,192L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
-        <div class="home-content">
+    <div class="home" id="home" >
+        <vue-wavify class="wave" :points="pathRandomizer.points" :speed="pathRandomizer.speed" :amplitude="pathRandomizer.amplitude" :fill="`rgb(${pathRandomizer.fillR}, ${pathRandomizer.fillG}, ${pathRandomizer.fillB})`"/>
+        <svg class="sun" height="500" width="500">
+            <circle cx="0" cy="0" r="200" :fill="`rgb(${sun.R}, ${sun.G}, ${sun.B})`" />
+        </svg>
+        <div class="mood-toggle">
+            <h5 class="mood-toggle-title">
+                Mood Toggle
+            </h5>
+            <div class="switches">
+                <vs-switch dark v-model="lightSwitch" @change="toggleMood(lightSwitch, weatherSwitch)">
+                    <template #on>
+                        Night
+                    </template>
+                    <template #off>
+                        Day
+                    </template>
+                </vs-switch>
+                <br>
+                <vs-switch color="rgb(129, 140, 163)" v-model="weatherSwitch" @change="toggleMood(lightSwitch, weatherSwitch)">
+                    <template #on>
+                        Cloudy
+                    </template>
+                    <template #off>
+                        Sunny
+                    </template>
+                </vs-switch>
+            </div>
+        </div>
+        <div id="home-content" class="home-content">
             <vs-avatar size="200" class="avatar">
                 <img src="../assets/ricky.jpg" alt="">
             </vs-avatar>
-            <h2>
+            <h2 class="main-page-name">
                 <b>Ricky Liu</b>
             </h2>
             <transition name="slide-fade" mode="out-in">
@@ -14,13 +41,13 @@
                 </h2>
             </transition>
             <div class="subtitles">
-                <button class="subtitle">
+                <button class="subtitle" id="subtitle1">
                     <h4>My Work</h4>
                 </button>
-                <button class="subtitle">
+                <button class="subtitle" id="subtitle2">
                     <h4>About</h4>
                 </button>
-                <button class="subtitle">
+                <button class="subtitle" id="subtitle3">
                     <h4>Contact</h4>
                 </button>
             </div>
@@ -29,20 +56,91 @@
 </template>
 
 <script>
+import VueWavify from 'vue-wavify';
+
 export default {
     name: "Home",
+    components: { VueWavify },
     data () {
         return {
             category: "Software developer",
             categories: ["Software developer", "Entrepreneur", "Artist", "Community leader", "Map enjoyer"],
             iterator: 1,
+            pathRandomizer: {
+                points: 4,
+                speed: 0.30,
+                height: 10,
+                amplitude: 30,
+                fillR: 181,
+                fillG: 199,
+                fillB: 237
+            },
+            sun: {
+                R: 255,
+                G: 255,
+                B: 224
+            },
+            lightSwitch: false,
+            weatherSwitch: false
         }
     },
     methods: {
-
+        toggleMood: async function (lightSwitch, weatherSwitch) {
+            if (this.lightSwitch === true && this.weatherSwitch === true) {
+                document.getElementById("home-content").style.color = 'white';
+                document.getElementById("home").style.backgroundColor = 'rgb(46, 46, 46)';
+                document.getElementById("subtitle1").style.backgroundColor = 'rgb(78, 87, 85)';
+                document.getElementById("subtitle2").style.backgroundColor = 'rgb(78, 87, 85)';
+                document.getElementById("subtitle3").style.backgroundColor = 'rgb(78, 87, 85)';
+                this.sun.R = 46;
+                this.sun.G = 46;
+                this.sun.B = 46;
+                this.pathRandomizer.fillR = 103;
+                this.pathRandomizer.fillG = 101;
+                this.pathRandomizer.fillB = 117;
+            } else if (this.lightSwitch === false && this.weatherSwitch === true) {
+                document.getElementById("home-content").style.color = 'rgb(31, 26, 119)';
+                document.getElementById("home").style.backgroundColor = 'rgb(222, 222, 222)';
+                document.getElementById("subtitle1").style.backgroundColor = 'white';
+                document.getElementById("subtitle2").style.backgroundColor = 'white';
+                document.getElementById("subtitle3").style.backgroundColor = 'white';
+                this.sun.R = 247;
+                this.sun.G = 246;
+                this.sun.B = 235;
+                this.pathRandomizer.fillR = 176;
+                this.pathRandomizer.fillG = 197;
+                this.pathRandomizer.fillB = 235;
+            } else if (this.lightSwitch === true && this.weatherSwitch === false) {
+                document.getElementById("home-content").style.color = 'white';
+                document.getElementById("home").style.backgroundColor = 'rgb(38, 34, 46)';
+                document.getElementById("subtitle1").style.backgroundColor = 'rgb(71, 61, 92)';
+                document.getElementById("subtitle2").style.backgroundColor = 'rgb(71, 61, 92)';
+                document.getElementById("subtitle3").style.backgroundColor = 'rgb(71, 61, 92)';
+                this.sun.R = 227;
+                this.sun.G = 224;
+                this.sun.B = 217;
+                this.pathRandomizer.fillR = 65;
+                this.pathRandomizer.fillG = 59;
+                this.pathRandomizer.fillB = 99;
+            } else {
+                document.getElementById("home-content").style.color = 'rgb(31, 26, 119)';
+                document.getElementById("home").style.backgroundColor = 'rgb(209, 222, 248)';
+                document.getElementById("subtitle1").style.backgroundColor = 'white';
+                document.getElementById("subtitle2").style.backgroundColor = 'white';
+                document.getElementById("subtitle3").style.backgroundColor = 'white';
+                this.sun.R = 255;
+                this.sun.G = 255;
+                this.sun.B = 224;
+                this.pathRandomizer.fillR = 181;
+                this.pathRandomizer.fillG = 199;
+                this.pathRandomizer.fillB = 237;
+            }
+        }
     },
     mounted () {
+
         setInterval(() => {
+            console.log(this.iterator)
             if (this.iterator >= this.categories.length) {
                 this.iterator = 0;
             }
@@ -55,7 +153,6 @@ export default {
 
 <style lang="scss">
 
-
 .home {
     height: 100vh;
     width: 100vw;
@@ -66,6 +163,11 @@ export default {
     justify-content:flex-start;
     align-items: center;
     background-color: rgb(209, 222, 248);
+    transition: background-color 1s;
+}
+
+i {
+    background-color: black;
 }
 
 .avatar {
@@ -102,8 +204,25 @@ export default {
 .wave {
     fill: rgb(181, 199, 237);
     position: absolute;
+    display: flex !important;
     bottom: 0;
+    transition: ease;
+    height: 12em;
 }
+
+.sun {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+circle {
+    transition: fill 1s;
+}
+
+ path { 
+     transition: fill 1s; 
+     }
 
 .subtitles {
     display: flex;
@@ -121,8 +240,10 @@ export default {
     padding-bottom: 0.5em;
     padding-left: 1em;
     padding-right: 1em;
-    border-radius: 2.2em;
-    background-color: rgb(181, 199, 237);
+    border-radius: 0.8em;
+    background-color: rgb(255, 255, 255);
+        transition: color 1s;
+        transition: background-color 1s;
 }
 
 .subtitles .subtitle {
@@ -144,10 +265,33 @@ $animationDelay: 1;
 }
 
 .slide-fade-enter-active {
-  transition: all 3s ease;
+  transition: all 2s ease;
+  transition: color 1s;
 }
 .slide-fade-leave-active {
-  transition: all 3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    transition: color 1s;
 }
 
+.mood-toggle {
+    position: absolute;
+    right: 0;
+    margin-right: 10em;
+    margin-top: 5em;
+    background-color: white;
+    border-radius: 0.8em;
+}
+
+.mood-toggle-title {
+    margin: 1em;
+    margin-left: 1.3em;
+    margin-right: 1.3em;
+}
+
+.switches {    
+    margin: 1em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+
+}
 </style>

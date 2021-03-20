@@ -35,6 +35,13 @@ h2 {
   font-weight: 500;
 }
 
+h5 {
+  font-size: 100%;
+  font-weight: 600;
+  font-family: 'Poppins';
+  color: rgb(31, 26, 119);
+}
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
