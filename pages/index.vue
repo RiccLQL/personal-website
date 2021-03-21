@@ -1,8 +1,10 @@
 <template>
   <div class="container">
     <div>
-      <Home @toggleMood="toggleMood"/>
+      <Home @toggleMood="toggleMood"/>      
+      <Overview />
       <Work />
+
     </div>
   </div>
 </template>
@@ -10,11 +12,12 @@
 <script>
 import Home from '../components/Home';
 import Work from '../components/Work';
+import Overview from '../components/Overview';
 
 export default {
 
   components: {
-    Home, Work
+    Home, Work, Overview
   },
   methods: {
     toggleMood: function (switches) {
@@ -23,19 +26,29 @@ export default {
         if (switches[0] === true && switches[1] === true) {
             document.getElementById("work").style.backgroundColor = 'rgb(103, 101, 117)';
             document.getElementById("work-content").style.color = 'white';
+            document.getElementById("overview").style.backgroundColor = 'rgb(103, 101, 117)';
+            document.getElementById("overview-content").style.color = 'white';
         } else if (switches[0] === false && switches[1] === true) {
-            document.getElementById("work").style.backgroundColor = 'rgb(176, 197, 235)';
+            document.getElementById("work").style.backgroundColor = 'rgb(245, 248, 255)';
             document.getElementById("work-content").style.color = 'rgb(31, 26, 119)';
+            document.getElementById("overview").style.backgroundColor = 'rgb(245, 248, 255)';
+            document.getElementById("overview-content").style.color = 'rgb(31, 26, 119)';
         } else if (switches[0] === true && switches[1] === false) {
             document.getElementById("work").style.backgroundColor = 'rgb(65, 59, 99)';
             document.getElementById("work-content").style.color = 'white';
+            document.getElementById("overview").style.backgroundColor = 'rgb(65, 59, 99)';
+            document.getElementById("overview-content").style.color = 'white';
         } else {
-            document.getElementById("work").style.backgroundColor = 'rgb(181, 199, 237)';
+            document.getElementById("work").style.backgroundColor = 'rgb(245, 248, 255)';
             document.getElementById("work-content").style.color = 'rgb(31, 26, 119)';
+            document.getElementById("overview").style.backgroundColor = 'rgb(245, 248, 255)';
+            document.getElementById("overview-content").style.color = 'rgb(31, 26, 119)';
         }
       } else {
-        document.getElementById("work").style.backgroundColor = 'rgb(31, 26, 119)';
+        document.getElementById("work").style.backgroundColor = 'rgb(93, 83, 184)';
         document.getElementById("work-content").style.color = 'white';
+        document.getElementById("overview").style.backgroundColor = 'rgb(93, 83, 184)';
+        document.getElementById("overview-content").style.color = 'white';
       }
     }
   }
@@ -50,13 +63,32 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
 
+a {
+  text-align: center;
+}
+
+a:visited { 
+  text-decoration: none; 
+  color: inherit;
+  }
+
 h2 {
   font-size: 350%;
+  font-weight: 500;
+  font-family: 'Poppins';
+}
+
+h3 {
+  font-size: 200%;
   font-weight: 500;
   font-family: 'Poppins';
 }
@@ -72,6 +104,13 @@ h6 {
   font-size: 90%;
   font-weight: 500;
   font-family: 'Poppins';
+}
+
+p {
+  font-size: 100%;
+  font-weight: 500;
+  font-family: 'Poppins';
+  line-height: 200%;
 }
 
 .container {
@@ -139,5 +178,19 @@ h6 {
     sans-serif;
   font-weight: 400;
   margin: 10px;
+}
+
+.description {
+  padding: 2.5em;
+  padding-left: 3em;
+  padding-right: 3em;
+  border-radius: 0.8em;
+  width: 60vw;
+  text-align: left;
+}
+
+.section-subtitle {
+  margin-bottom: 1.5em;
+  user-select: none;
 }
 </style>

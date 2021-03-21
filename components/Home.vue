@@ -8,32 +8,48 @@
         <svg class="sun" height="500" width="500" id="sun" >
             <circle cx="0" cy="0" r="200" :fill="`rgb(${sun.R}, ${sun.G}, ${sun.B})`" />
         </svg>
-        <div class="mood-toggle">
-            <h5 class="mood-toggle-title">
-                Mood Toggle
-            </h5>
-            <div class="switches">
-                <vs-switch dark v-model="lightSwitch" @change="toggleMood()">
-                    <template #on>
-                        Night
-                    </template>
-                    <template #off>
-                        Day
-                    </template>
-                </vs-switch>
-                <br>
-                <vs-switch color="rgb(129, 140, 163)" v-model="weatherSwitch" @change="toggleMood()">
-                    <template #on>
-                        Cloudy
-                    </template>
-                    <template #off>
-                        Sunny
-                    </template>
-                </vs-switch>
-                <br>
-                <button class="subtitle sunset-button" id="sunset-button" @click="toggleSunset()">
-                    <h6>Sunset Mode</h6>
-                </button>
+        <div class="side-panels">
+            <div class="mood-toggle">
+                <h5 class="mood-toggle-title">
+                    Mood Toggle
+                </h5>
+                <div class="switches">
+                    <vs-switch dark v-model="lightSwitch" @change="toggleMood()">
+                        <template #on>
+                            Night
+                        </template>
+                        <template #off>
+                            Day
+                        </template>
+                    </vs-switch>
+                    <br>
+                    <vs-switch color="rgb(129, 140, 163)" v-model="weatherSwitch" @change="toggleMood()">
+                        <template #on>
+                            Cloudy
+                        </template>
+                        <template #off>
+                            Sunny
+                        </template>
+                    </vs-switch>
+                    <br>
+                    <button class="subtitle sunset-button" id="sunset-button" @click="toggleSunset()">
+                        <h6>Sunset Mode</h6>
+                    </button>
+                </div>
+            </div>
+            <div class="contact">
+                <h5 class="mood-toggle-title">
+                    Contact:
+                </h5>
+                <a class="subtitle contact-button" id="email-button" @mouseover="email = 'liuricky24@gmail.com'" @mouseleave="email = 'Email'">
+                        <h6>{{email}}</h6>
+                </a>
+                <a class="subtitle contact-button" id="linkedin-button" href="https://www.linkedin.com/in/rickyliu-liqi/" >
+                        <h6>LinkedIn</h6>
+                </a>
+                <a class="subtitle contact-button" id="github-button" href="https://github.com/riccLQL" >
+                        <h6>GitHub</h6>
+                </a>
             </div>
         </div>
         <HomeContent />
@@ -55,9 +71,9 @@ export default {
                 speed: 0.30,
                 height: 10,
                 amplitude: 30,
-                fillR: 181,
-                fillG: 199,
-                fillB: 237
+                fillR: 245,
+                fillG: 248,
+                fillB: 255
             },
             sun: {
                 R: 255,
@@ -68,7 +84,8 @@ export default {
             weatherSwitch: false,
             sunsetSwitch: false,
             lastScrollTop: 0,
-            section: 0
+            section: 0,
+            email: "Email"
         }
     },
     methods: {
@@ -85,8 +102,6 @@ export default {
                     document.getElementById("home-bg").style.backgroundColor = 'rgb(46, 46, 46)';
                     document.getElementById("subtitle1").style.backgroundColor = 'rgb(78, 87, 85)';
                     document.getElementById("subtitle2").style.backgroundColor = 'rgb(78, 87, 85)';
-                    document.getElementById("subtitle3").style.backgroundColor = 'rgb(78, 87, 85)';
-                    document.getElementById("work").style.backgroundColor = 'rgb(103, 101, 117)';
                     this.sun.R = 46;
                     this.sun.G = 46;
                     this.sun.B = 46;
@@ -98,21 +113,17 @@ export default {
                     document.getElementById("home-bg").style.backgroundColor = 'rgb(222, 222, 222)';
                     document.getElementById("subtitle1").style.backgroundColor = 'white';
                     document.getElementById("subtitle2").style.backgroundColor = 'white';
-                    document.getElementById("subtitle3").style.backgroundColor = 'white';
-                    document.getElementById("work").style.backgroundColor = 'rgb(176, 197, 235)';
                     this.sun.R = 247;
                     this.sun.G = 246;
                     this.sun.B = 235;
-                    this.pathRandomizer.fillR = 176;
-                    this.pathRandomizer.fillG = 197;
-                    this.pathRandomizer.fillB = 235;
+                    this.pathRandomizer.fillR = 245;
+                    this.pathRandomizer.fillG = 248;
+                    this.pathRandomizer.fillB = 255;
                 } else if (this.lightSwitch === true && this.weatherSwitch === false) {
                     document.getElementById("home-content").style.color = 'white';
                     document.getElementById("home-bg").style.backgroundColor = 'rgb(38, 34, 46)';
                     document.getElementById("subtitle1").style.backgroundColor = 'rgb(71, 61, 92)';
                     document.getElementById("subtitle2").style.backgroundColor = 'rgb(71, 61, 92)';
-                    document.getElementById("subtitle3").style.backgroundColor = 'rgb(71, 61, 92)';
-                    document.getElementById("work").style.backgroundColor = 'rgb(65, 59, 99)';
                     this.sun.R = 227;
                     this.sun.G = 224;
                     this.sun.B = 217;
@@ -124,14 +135,12 @@ export default {
                     document.getElementById("home-bg").style.backgroundColor = 'rgb(209, 222, 248)';
                     document.getElementById("subtitle1").style.backgroundColor = 'white';
                     document.getElementById("subtitle2").style.backgroundColor = 'white';
-                    document.getElementById("subtitle3").style.backgroundColor = 'white';
-                    document.getElementById("work").style.backgroundColor = 'rgb(181, 199, 237)';
                     this.sun.R = 255;
                     this.sun.G = 255;
                     this.sun.B = 224;
-                    this.pathRandomizer.fillR = 181;
-                    this.pathRandomizer.fillG = 199;
-                    this.pathRandomizer.fillB = 237;
+                    this.pathRandomizer.fillR = 245;
+                    this.pathRandomizer.fillG = 248;
+                    this.pathRandomizer.fillB = 255;
                 }
             } else {
                     document.getElementById("home-content").style.color = 'rgb(31, 26, 119)';
@@ -139,11 +148,9 @@ export default {
                     document.getElementById("home-bg").style.opacity = '0';
                     document.getElementById("subtitle1").style.backgroundColor = 'rgb(93, 83, 184)';
                     document.getElementById("subtitle2").style.backgroundColor = 'rgb(93, 83, 184)';
-                    document.getElementById("subtitle3").style.backgroundColor = 'rgb(93, 83, 184)';
                     document.getElementById("home-content").style.color = 'white';
                     document.getElementById("sunset-button").style.backgroundColor = 'rgb(238,93,108)';
                     document.getElementById("sunset-button").style.color = 'white';
-                    document.getElementById("work").style.backgroundColor = 'rgb(93, 83, 184)';
                     this.sun.R = 255;
                     this.sun.G = 255;
                     this.sun.B = 224;
@@ -156,6 +163,10 @@ export default {
             this.sunsetSwitch = !this.sunsetSwitch;
             this.toggleMood();
         },
+        showHideEmail: function () {
+            if (this.email === "Email") this.email = "liuricky24@gmail.com";
+            else this.email = "Email";
+        }
     },
     mounted () {
     }
@@ -228,7 +239,6 @@ i {
 }
 
 .wave {
-    fill: rgb(181, 199, 237);
     position: absolute;
     display: flex !important;
     bottom: 0;
@@ -269,8 +279,11 @@ circle {
     padding-right: 1em;
     border-radius: 0.8em;
     background-color: rgb(255, 255, 255);
-        transition: color 1s;
-        transition: background-color 1s;
+        transition: color 1s, background-color 1s, transform 0.3s;
+}
+
+.subtitle:hover {
+    transform: scale(1.08);
 }
 
 .sunset-button {
@@ -312,6 +325,7 @@ $animationDelay: 1;
     margin-top: 5em;
     background-color: white;
     border-radius: 0.8em;
+    width: 15em
 }
 
 .mood-toggle-title {
@@ -325,5 +339,43 @@ $animationDelay: 1;
     margin-left: 1.5em;
     margin-right: 1.5em;
 
+}
+
+.contact {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: 2em;
+    background-color: white;
+    border-radius: 0.8em;
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0.8em;
+    padding-top: 0.8em;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-button {
+    width: 15em;
+}
+
+#email-button {
+    background-color: rgb(210, 236, 245);
+    color: rgb(31, 26, 119);
+}
+
+#linkedin-button {
+    background-color: #0072b1;
+    color: white;
+}
+
+#github-button {
+    background-color: whitesmoke;
+    color: black;
 }
 </style>

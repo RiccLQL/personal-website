@@ -12,15 +12,12 @@
             </h2>
         </transition>
         <div class="subtitles">
-            <button class="subtitle" id="subtitle1">
-                <h4>My Work</h4>
-            </button>
-            <button class="subtitle" id="subtitle2">
-                <h4>About</h4>
-            </button>
-            <button class="subtitle" id="subtitle3">
-                <h4>Contact</h4>
-            </button>
+            <a class="subtitle" id="subtitle1" href="#overview">
+                <h4>Overview</h4>
+            </a>
+            <a class="subtitle" id="subtitle2" href="#work">
+                <h4>Portfolio</h4>
+            </a>
         </div>
     </div>
 </template>

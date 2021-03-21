@@ -2,7 +2,7 @@
     <div class="work" id="work">
         <div class="work-content" id="work-content">
         <h2>
-            My Work
+            Portfolio
         </h2>
         </div>
     </div>
@@ -25,11 +25,12 @@ export default {
         justify-content:flex-start;
         align-items: center;
         transition: background-color 1s;
-        background-color: rgb(181, 199, 237);
+        background-color: rgb(245, 248, 255);
     }
 
     .work-content {
-        margin-top: 5em;
+        margin-top: 2em;
         color: rgb(31, 26, 119);
+        transition: all 1s;
     }
 </style>
