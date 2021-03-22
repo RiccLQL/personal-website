@@ -214,113 +214,113 @@ p {
   user-select: none;
 }
 
-@media (max-width: 1050px) {
+@media only screen and (max-width: 1050px) {
   h2 {
-    font-size: 20px;
+    font-size: 20px !important;
   }
 
   h6 {
-    font-size: 12px;
+    font-size: 12px !important;
   }
 
   .home {
-    height: unset;
+    height: unset !important;
   }
 
   .home-bg {
-    height: unset;
+    height: unset !important;
   }
 
   .sun {
-    display: none;
+    display: none !important;
   }
 
   .mood-toggle {
-    display: none;
+    display: none !important;
   }
 
   .contact {
-    flex-direction: column;
-    background-color: unset;
-    height: 20vh;
-    position: sticky;
-    margin-bottom: 4em;
-    margin-top: 4em;
+    flex-direction: column !important;
+    background-color: unset !important;
+    height: 20vh !important;
+    position: sticky !important;
+    margin-bottom: 4em !important;
+    margin-top: 4em !important;
   }
 
   .wave {
-    fill: rgb(93, 83, 184);
+    fill: rgb(93, 83, 184) !important;
   }
 
   .contact-button {
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
+    margin-top: 1.5% !important;
+    margin-bottom: 1.5% !important;
   }
 
   #github-button {
-    background-color: rgb(21, 21, 21);
-    color: whitesmoke;
+    background-color: rgb(21, 21, 21) !important;
+    color: whitesmoke !important;
   }
 
   p {
-    font-size: 12px;
+    font-size: 12px !important;
   }
 
   .description {
-    width: 90vw;
+    width: 90vw !important;
   }
 
   .stats-tab-wrapper {
-    width: 70%;
-    flex-direction: column;
+    width: 70% !important;
+    flex-direction: column !important;
   }
 
   p {
-    line-height: 1.5;
+    line-height: 1.5 !important;
   }
 
   .stats-list {
-    margin-left: 0;
-    width: 100%;
-    margin-top: 10%;
+    margin-left: 0 !important;
+    width: 100% !important;
+    margin-top: 10% !important;
   }
 
   .stat {
-    flex-direction: column;
-    width: unset;
-    width: 100%;
-    margin-bottom: 5%;
+    flex-direction: column !important;
+    width: unset !important;
+    width: 100% !important;
+    margin-bottom: 5% !important;
   }
 
   .stat-title {
-    width: 100%;
+    width: 100% !important;
   }
 
   progress {
-    margin-left: 0;
-    width: 100%;
+    margin-left: 0 !important;
+    width: 100% !important;
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 20px !important;
   }
 
   .description {
-    text-align: center;
+    text-align: center !important;
   }
 
   .exp-title-dates {
-    flex-direction: column;
-    text-align: center;
-    justify-content: left;
+    flex-direction: column !important;
+    text-align: center !important;
+    justify-content: left !important;
   }
 
   .exp-text {
-    font-size: 12px;
+    font-size: 12px !important;
   }
 }
 
-@media (max-height: 700px) {
+@media only screen and (max-height: 700px) {
 
     .home {
     height: unset;
