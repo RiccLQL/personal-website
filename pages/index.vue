@@ -101,6 +101,12 @@ a:visited {
   color: inherit;
   }
 
+  h1 {
+  font-size: 350%;
+  font-weight: 500;
+  font-family: 'Poppins';
+}
+
 h2 {
   font-size: 350%;
   font-weight: 500;

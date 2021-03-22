@@ -3,9 +3,9 @@
         <vs-avatar size="150" class="avatar">
             <img src="../assets/ricky.jpg" alt="">
         </vs-avatar>
-        <h2 class="main-page-name">
+        <h1 class="main-page-name">
             <b>Ricky Liu</b>
-        </h2>
+        </h1>
         <transition name="slide-fade" mode="out-in">
             <h2 class="main-page-name" :key="category">
                 {{category}}
