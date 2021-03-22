@@ -28,27 +28,47 @@ export default {
             document.getElementById("work-content").style.color = 'white';
             document.getElementById("overview").style.backgroundColor = 'rgb(103, 101, 117)';
             document.getElementById("overview-content").style.color = 'white';
+            let workEntityWrappers = document.getElementsByClassName("work-entity-wrapper");
+            for (let i = 0; i < workEntityWrappers.length; i++) {
+              workEntityWrappers[i].style.backgroundColor = "rgb(89, 87, 102)";
+            }
         } else if (switches[0] === false && switches[1] === true) {
             document.getElementById("work").style.backgroundColor = 'rgb(245, 248, 255)';
             document.getElementById("work-content").style.color = 'rgb(31, 26, 119)';
             document.getElementById("overview").style.backgroundColor = 'rgb(245, 248, 255)';
             document.getElementById("overview-content").style.color = 'rgb(31, 26, 119)';
+            let workEntityWrappers = document.getElementsByClassName("work-entity-wrapper");
+            for (let i = 0; i < workEntityWrappers.length; i++) {
+              workEntityWrappers[i].style.backgroundColor = "white";
+            }
         } else if (switches[0] === true && switches[1] === false) {
             document.getElementById("work").style.backgroundColor = 'rgb(65, 59, 99)';
             document.getElementById("work-content").style.color = 'white';
             document.getElementById("overview").style.backgroundColor = 'rgb(65, 59, 99)';
             document.getElementById("overview-content").style.color = 'white';
+            let workEntityWrappers = document.getElementsByClassName("work-entity-wrapper");
+            for (let i = 0; i < workEntityWrappers.length; i++) {
+              workEntityWrappers[i].style.backgroundColor = "rgb(80, 74, 117)";
+            }
         } else {
             document.getElementById("work").style.backgroundColor = 'rgb(245, 248, 255)';
             document.getElementById("work-content").style.color = 'rgb(31, 26, 119)';
             document.getElementById("overview").style.backgroundColor = 'rgb(245, 248, 255)';
             document.getElementById("overview-content").style.color = 'rgb(31, 26, 119)';
+            let workEntityWrappers = document.getElementsByClassName("work-entity-wrapper");
+            for (let i = 0; i < workEntityWrappers.length; i++) {
+              workEntityWrappers[i].style.backgroundColor = "white";
+            }
         }
       } else {
         document.getElementById("work").style.backgroundColor = 'rgb(93, 83, 184)';
         document.getElementById("work-content").style.color = 'white';
         document.getElementById("overview").style.backgroundColor = 'rgb(93, 83, 184)';
         document.getElementById("overview-content").style.color = 'white';
+        let workEntityWrappers = document.getElementsByClassName("work-entity-wrapper");
+        for (let i = 0; i < workEntityWrappers.length; i++) {
+          workEntityWrappers[i].style.backgroundColor = "rgb(110, 99, 207)";
+        }
       }
     }
   }
@@ -192,5 +212,153 @@ p {
 .section-subtitle {
   margin-bottom: 1.5em;
   user-select: none;
+}
+
+@media only screen and (max-width: 1050px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  h6 {
+    font-size: 12px;
+  }
+
+  .home {
+    height: unset;
+  }
+
+  .home-bg {
+    height: unset;
+  }
+
+  .sun {
+    display: none;
+  }
+
+  .mood-toggle {
+    display: none;
+  }
+
+  .contact {
+    flex-direction: column;
+    background-color: unset;
+    height: 20vh;
+    position: sticky;
+    margin-bottom: 4em;
+    margin-top: 4em;
+  }
+
+  .wave {
+    fill: rgb(93, 83, 184);
+  }
+
+  .contact-button {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+  }
+
+  #github-button {
+    background-color: rgb(21, 21, 21);
+    color: whitesmoke;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .description {
+    width: 90vw;
+  }
+
+  .stats-tab-wrapper {
+    width: 70%;
+    flex-direction: column;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  .stats-list {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 10%;
+  }
+
+  .stat {
+    flex-direction: column;
+    width: unset;
+    width: 100%;
+    margin-bottom: 5%;
+  }
+
+  .stat-title {
+    width: 100%;
+  }
+
+  progress {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .description {
+    text-align: center;
+  }
+
+  .exp-title-dates {
+    flex-direction: column;
+    text-align: center;
+    justify-content: left;
+  }
+
+  .exp-text {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+
+    .home {
+    height: unset;
+  }
+
+  .home-bg {
+    height: unset;
+  }
+  
+  .home-gradient {
+    height: 100%;
+  }
+
+    .sun {
+    display: none;
+  }
+
+  .mood-toggle {
+    display: none;
+  }
+
+  .contact {
+    flex-direction: column;
+    background-color: unset;
+    height: 20vh;
+    position: sticky;
+    margin-bottom: 4em;
+    margin-top: 4em;
+  }
+
+    .contact-button {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+  }
+
+    #github-button {
+    background-color: rgb(21, 21, 21);
+    color: whitesmoke;
+  }
 }
 </style>

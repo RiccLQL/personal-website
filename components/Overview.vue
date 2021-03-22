@@ -13,13 +13,13 @@
                 Skills
             </h3>
             <div class="skills">
-                <font-awesome-icon class="arrow" icon="arrow-left" @click="rotate('left')" />
+                <font-awesome-icon class="arrow" id="arrow-left" icon="arrow-left" @click="rotate('left')" />
                     <StatsTab class="statstab" v-bind:stats="stats.languages" v-bind:carousel="carousel" v-bind:carouselPhoto="carouselPhotos[0]" v-if="carousel === 'Languages'" :key="carouselCounter" />
                     <StatsTab class="statstab" v-bind:stats="stats.webDev" v-bind:carousel="carousel" v-bind:carouselPhoto="carouselPhotos[1]" v-if="carousel === 'Web Development'" :key="carouselCounter" />
                     <StatsTab class="statstab" v-bind:stats="stats.embedded" v-bind:carousel="carousel" v-bind:carouselPhoto="carouselPhotos[2]" v-if="carousel === 'Embedded Systems'" :key="carouselCounter"/>
                     <StatsTab class="statstab" v-bind:stats="stats.otherSkills" v-bind:carousel="carousel" v-bind:carouselPhoto="carouselPhotos[3]" v-if="carousel === 'Other Skills'" :key="carouselCounter"/>
                     
-                <font-awesome-icon class="arrow" icon="arrow-right" @click="rotate('right')" />
+                <font-awesome-icon class="arrow" id="arrow-right" icon="arrow-right" @click="rotate('right')" />
             </div>
         </div>
     </div>
@@ -95,7 +95,6 @@ export default {
 <style lang="scss">
 
     .overview {
-        height: 100vh;
         width: 100vw;
         overflow: hidden;    
         display: flex;
@@ -122,14 +121,25 @@ export default {
     .skills {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        position: relative;
         width: 60vw;
-        height: 20em;
+        min-height: 40vh;
     }
 
     .arrow {
+        position: absolute;
         width: 2em;
+        top: 150px;
+    }
+
+    #arrow-left {
+        right: 100%;
+    }
+
+    #arrow-right {
+        left: 100%;
     }
 
     .statstab {

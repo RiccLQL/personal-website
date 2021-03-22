@@ -1,6 +1,6 @@
 <template>
     <div id="home-content" class="home-content">
-        <vs-avatar size="200" class="avatar">
+        <vs-avatar size="150" class="avatar">
             <img src="../assets/ricky.jpg" alt="">
         </vs-avatar>
         <h2 class="main-page-name">
@@ -28,7 +28,7 @@ export default {
     data () {
         return {
             category: "Software developer",
-            categories: ["Software developer", "Entrepreneur", "Map enjoyer", "Self-proclaimed funny guy"],
+            categories: ["Software developer", "Map enjoyer", "Self-proclaimed funny guy"],
             iterator: 1,
         }
     },

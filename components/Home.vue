@@ -36,7 +36,8 @@
                         <h6>Sunset Mode</h6>
                     </button>
                 </div>
-            </div>
+            </div>        
+            <HomeContent />
             <div class="contact">
                 <h5 class="mood-toggle-title">
                     Contact:
@@ -52,7 +53,7 @@
                 </a>
             </div>
         </div>
-        <HomeContent />
+
     </div>
 </template>
 
@@ -243,7 +244,7 @@ i {
     display: flex !important;
     bottom: 0;
     transition: ease;
-    height: 12em;
+    height: 20%;
 }
 
 .sun {
@@ -271,8 +272,8 @@ circle {
 
 .subtitle {
     all: unset;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     padding-left: 1em;
@@ -361,7 +362,7 @@ $animationDelay: 1;
 }
 
 .contact-button {
-    width: 15em;
+    width: 60%;
 }
 
 #email-button {
