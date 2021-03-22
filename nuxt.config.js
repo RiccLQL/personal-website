@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Ricky Liu - Personal Website',
+    title: 'Ricky Liu - Software Engineering @ McGill University',
     htmlAttrs: {
       lang: 'en'
     },
