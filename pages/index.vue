@@ -323,42 +323,42 @@ p {
 @media only screen and (max-height: 700px) {
 
     .home {
-    height: unset;
+    height: unset !important;
   }
 
   .home-bg {
-    height: unset;
+    height: unset !important;
   }
   
   .home-gradient {
-    height: 100%;
+    height: 100% !important;
   }
 
     .sun {
-    display: none;
+    display: none !important;
   }
 
   .mood-toggle {
-    display: none;
+    display: none !important;
   }
 
   .contact {
-    flex-direction: column;
-    background-color: unset;
-    height: 20vh;
-    position: sticky;
-    margin-bottom: 4em;
-    margin-top: 4em;
+    flex-direction: column !important;
+    background-color: unset !important;
+    height: 20vh !important;
+    position: sticky !important;
+    margin-bottom: 4em !important;
+    margin-top: 4em !important;
   }
 
     .contact-button {
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
+    margin-top: 1.5% !important;
+    margin-bottom: 1.5% !important;
   }
 
     #github-button {
-    background-color: rgb(21, 21, 21);
-    color: whitesmoke;
+    background-color: rgb(21, 21, 21) !important;
+    color: whitesmoke !important;
   }
 }
 </style>
