@@ -214,7 +214,7 @@ p {
   user-select: none;
 }
 
-@media only screen and (max-width: 1050px) {
+@media (max-width: 1050px) {
   h2 {
     font-size: 20px;
   }
@@ -320,7 +320,7 @@ p {
   }
 }
 
-@media only screen and (max-height: 700px) {
+@media (max-height: 700px) {
 
     .home {
     height: unset;
